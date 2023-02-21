@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA на минималках</title>
+    <style>
+        .textContent a {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dinamicContent">
+        <h1 class="title"></h1>
+        <h2 class="subtitle"></h2>
+        <p class="textContent"></p>
+    </div>
+
+    <script src="index.json"></script>
+    <script> 
+        const dinamicContent = document.querySelector('.dinamicContent');
+        const tle = dinamicContent.querySelector('.title');
+        const subtle = dinamicContent.querySelector('.subtitle');
+        const textCont = dinamicContent.querySelector('.textContent');
+
+        const pathname = location.pathname.split('/').pop();
+        let jsonFilePath = '';
+        if (pathname === '') {
+            jsonFilePath = 'index.json';
+        } else {
+            jsonFilePath = `${pathname.slice(0, -5)}.json`;
+        }
+        console.log(jsonFilePath);
+        
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const request = new XMLHttpRequest();
+            request.open('GET', 'index.json');
+            request.responseType = 'json';
+            request.send();
+
+            request.onload = function () {
+                const data = request.response;
+                
+                tle.textContent = data.title;
+                subtle.textContent = data.subtitle;
+                textCont.innerHTML = data.body;
+            }
+        });
+
+        textCont.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (e.target.tagName === 'A') {
+                const fileName = e.target.textContent;
+                console.log(fileName);
+            
+                const request = new XMLHttpRequest();
+                request.open('GET', `${fileName}.json`);
+                request.responseType = 'json';
+                request.send();
+
+                request.onload = function () {
+                const data = request.response;
+                
+                tle.textContent = data.title;
+                subtle.textContent = data.subtitle;
+                textCont.innerHTML = data.body;
+                } 
+            }
+           
+        });
+    </script>
+</body>
+</html>

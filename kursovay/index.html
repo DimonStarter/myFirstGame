@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра «Камень, ножницы, бумага»</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content"></div>
+<script>
+    window.application = {
+        blocks: {},
+        screens: {},
+        renderScreen: function(screenName, container) {
+            if (!window.application.screens[screenName]) {
+                throw new Error('Введенный экран не существует');
+                return;
+            }
+            window.application.screens[screenName](container);
+        },
+        renderBlock: function(blockName, container) {
+            if (!window.application.blocks[blockName]) {
+                throw new Error('Введенный блок не существует');
+                return;
+            }
+            window.application.blocks[blockName](container);
+        },
+        timers: [],
+        timersSecond: [],
+        timersThird: [],
+        login: '',
+        token: '',
+        idMatch: '',
+        enemy: '',
+        }
+
+    const container = document.querySelector('.content');
+
+    function renderLoginInput(container) {
+        const loginInput = document.createElement('input');
+        loginInput.classList.add('loginScreen__input');
+        loginInput.setAttribute('name', 'login-input');
+        loginInput.setAttribute('placeholder', 'Введите логин...');
+        loginInput.setAttribute('type', 'text');
+
+        container.appendChild(loginInput);
+    }
+
+    window.application.blocks['LoginInput'] = renderLoginInput;
+        
+    function renderLoginButton(container) {
+        const loginButton = document.createElement('button');
+        loginButton.textContent = 'Войти';
+        loginButton.classList.add('loginScreen__button');
+        
+        
+
+        loginButton.addEventListener('click', () => {
+            let login = document.querySelector('.loginScreen__input');
+        });
+
+        container.appendChild(loginButton);
+    }
+        
+    window.application.blocks['LoginButton'] = renderLoginButton;
+        
+    function renderLoginScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+
+        const sectionGame = document.createElement('div');
+        sectionGame.classList.add('game');
+
+        const gameLabel = document.createElement('label');
+        gameLabel.classList.add('game__login');
+        gameLabel.setAttribute('for', 'login-input');
+
+        container.appendChild(title);
+        container.appendChild(sectionGame);
+        sectionGame.appendChild(gameLabel);
+
+        window.application.renderBlock('LoginInput', sectionGame);
+        window.application.renderBlock('LoginButton', sectionGame);
+    }
+
+    window.application.screens['login'] = renderLoginScreen; 
+
+    window.application.renderScreen('login');
+
+    function renderPlayerList(container) {
+        const ul = document.createElement('ul');
+        ul.classList.add('player-list');
+
+        container.appendChild(ul);
+
+        window.application.timers.push(setInterval(playerListRefresh, 1000));
+
+        function playerListRefresh () {
+            request ({
+                url: `${backURL}player-list`,
+                onSuccess: (data) => {  
+                    console.log(data.list);
+
+                    if (data.status === 'ok') {
+                        ul.replaceChildren();
+                        data.list.forEach(item => {
+                            const li = document.createElement('li');
+                            li.classList.add('player-list-item');
+                            li.textContent = item.login;
+                            ul.appendChild(li);
+                        });
+
+                        // const players = data.list.map(user => user.login).join(', ');
+                        // playerList.textContent = players;
+                    } else {
+                        console.warn('Не удалось получить cписок игроков в лобби');
+                    }
+                },
+            });
+        };
+    }
+
+    window.application.blocks['PlayerList'] = renderPlayerList;
+
+    function renderPlayButton(container) {
+        const playButton = document.createElement('button');
+        playButton.textContent = 'Играть!';
+        playButton.classList.add('lobbyScreen__button');
+
+        playButton.addEventListener('click', () => {
+            clearInterval(window.application.timers);
+            clearInterval(window.application.timersSecond);
+            clearInterval(window.application.timersThird);
+
+            request({
+                url: `${backURL}start`,
+                params: {
+                    token: window.application.token
+                },
+                onSuccess: (data) => {
+                    if (data.status === 'ok') {
+                        console.log(data);
+                        const idMatch = data["player-status"].game.id;
+                        window.application.idMatch = idMatch;
+                        window.application.renderScreen('WaitingTheGameScreen');
+                    } else {
+                        console.warn(data.message);
+                    }
+                },
+            });
+        });
+
+        container.appendChild(playButton);
+    }
+
+    window.application.blocks['PlayButton'] = renderPlayButton;
+
+    function renderLobbyScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Лобби';
+
+        container.appendChild(title);
+
+        window.application.renderBlock('PlayerList', container);
+        window.application.renderBlock('PlayButton', container);
+    }
+        
+    window.application.screens['lobby'] = renderLobbyScreen;
+
+    function renderWaitingTheGame(container) {
+        window.application.timersSecond.push(setInterval(WaitingForPlayerConnectRefresh, 500));
+        
+        function WaitingForPlayerConnectRefresh() {
+            request ({
+                url: `${backURL}game-status`,
+                params: {
+                    token: window.application.token,
+                    id: window.application.idMatch,
+                },
+                onSuccess: (data) => {
+                    console.log(data);
+                    if (data.status === 'ok') {
+                        if (data['game-status'].status == 'waiting-for-start') {
+                        console.log('waiting-for-start');
+                        } else {
+                        window.application.enemy = `${data['game-status'].enemy.login}`; 
+                        window.application.renderScreen('YourMove');
+                        }
+                    } else {
+                        console.warn(data.message);
+                    }
+                },
+            });
+        }    
+    }
+    
+    window.application.blocks['WaitingTheGameBlock'] = renderWaitingTheGame;
+
+    function renderWaitingTheGameScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Игра';
+            
+        const statusTheGame = document.createElement('h2');
+        statusTheGame.classList.add('statusTheGame');
+        statusTheGame.textContent = 'Ожидаем подключение соперника....';
+
+        container.appendChild(title);
+        container.appendChild(statusTheGame);
+            
+        window.application.renderBlock('WaitingTheGameBlock', container);
+    }
+
+    window.application.screens['WaitingTheGameScreen'] = renderWaitingTheGameScreen;
+
+    function renderYourMoveButtons(container) {
+        const rock = document.createElement('button');
+        rock.classList.add('rockButton');
+        rock.textContent = 'Камень';
+
+        const scissors = document.createElement('button');
+        scissors.classList.add('scissorsButton');
+        scissors.textContent = 'Ножницы';
+
+        const paper = document.createElement('button');
+        paper.classList.add('paperButton');
+        paper.textContent = 'Бумага';
+
+        function handleMove(move) {
+            request({
+                url: `${backURL}play`,
+                params: {
+                    token: window.application.token,
+                    id: window.application.idMatch,
+                    move: move,
+                },
+                onSuccess: (data) => {
+                    console.log(data);
+                    if (data.status === 'ok') {
+
+                        const status = data['game-status'].status;
+                        switch (status) {
+                            case 'waiting-for-enemy-move':
+                                window.application.renderScreen('WaitEnemyMove');
+                                break;
+                            case 'waiting-for-your-move':
+                                console.log('Ничья! Ход заново');
+                                window.application.renderScreen('YourMove');
+                                break;
+                            case 'lose':
+                                window.application.renderScreen('Lose');
+                                break;
+                            case 'Win':
+                                window.application.renderScreen('Win');
+                                break;
+                            default:
+                                console.log('error');
+                                break;
+                        }
+                    } else {
+                        console.warn(data.message);
+                    }
+                },
+            });
+        }
+
+        rock.addEventListener('click', () => {
+            handleMove('rock');
+        });
+
+        scissors.addEventListener('click', () => {
+            handleMove('scissors');
+        });
+            
+        paper.addEventListener('click', () => {
+            handleMove('paper');
+        });
+
+        container.appendChild(rock);
+        container.appendChild(scissors);
+        container.appendChild(paper);
+    }
+
+    window.application.blocks['MoveButtons'] = renderYourMoveButtons;
+
+    function renderYourMoveScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Игра';
+
+        const enemyLine = document.createElement('p');
+        enemyLine.classList.add('enemy');
+        enemyLine.textContent = `Вы против ${window.application.enemy}`;
+
+        container.appendChild(title);
+        container.appendChild(enemyLine);
+
+        window.application.renderBlock('MoveButtons', container);
+    };
+
+    window.application.screens['YourMove'] = renderYourMoveScreen;
+        
+
+    function renderWaitingTheEnemyMove(container) {
+        window.application.timersThird.push(setInterval(WaitingForPlayerMoveRefresh, 500));
+
+        function WaitingForPlayerMoveRefresh() {
+            request ({
+                url: `${backURL}game-status?token=${window.application.token}&id=${window.application.idMatch}`,
+                onSuccess: (data) => {
+                    console.log(data);
+                    if (data['game-status'].status == 'waiting-for-enemy-move') {
+                        console.log('Ждем хода соперника');
+                        } else if (data['game-status'].status == 'waiting-for-your-move') {
+                        window.application.renderScreen('YourMove');
+                        } else if (data['game-status'].status == 'lose') {
+                        window.application.renderScreen('Lose');
+                        } else if (data['game-status'].status == 'win') {
+                        window.application.renderScreen('Win');
+                        } else {
+                            const error = new Error();
+                            console.log(error);
+                        }  
+                },
+            });
+        }
+    };
+        
+    window.application.blocks['WaitingTheEnemyMove'] = renderWaitingTheEnemyMove;
+
+    function renderWaitingTheEnemyMoveScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Игра';
+
+        const enemyLine = document.createElement('p');
+        enemyLine.classList.add('enemy');
+        enemyLine.textContent = `Вы против ${window.application.enemy}`;
+
+        const statusTheGame = document.createElement('h2');
+        statusTheGame.classList.add('statusTheGame');
+        statusTheGame.textContent = 'Ожидаем ход соперника....';
+
+        container.appendChild(title);
+        container.appendChild(enemyLine);
+        container.appendChild(statusTheGame);
+
+        window.application.renderBlock('WaitingTheEnemyMove', container);
+    };
+
+    window.application.screens['WaitEnemyMove'] = renderWaitingTheEnemyMoveScreen;
+
+    function renderWin(container) {
+        const backToLobbyButton = document.createElement('button');
+        backToLobbyButton.classList.add('backToLobbyButton');
+        backToLobbyButton.textContent = 'В лобби';
+
+        backToLobbyButton.addEventListener('click', () => {
+            window.application.renderScreen('lobby');
+        });
+
+        container.appendChild(backToLobbyButton);   
+    }
+
+    window.application.blocks['Win'] = renderWin;
+
+    function renderWinScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Игра';
+
+        const enemyLine = document.createElement('p');
+        enemyLine.classList.add('enemy');
+        enemyLine.textContent = `Вы против ${window.application.enemy}`;
+
+        const img = document.createElement('img');
+        img.setAttribute('src', '/kursovay/image/win.png');
+        img.classList.add('result-image');
+
+        const statusTheGame = document.createElement('h2');
+        statusTheGame.classList.add('statusTheGame');
+        statusTheGame.textContent = 'Вы выиграли!';
+
+        container.appendChild(title);
+        container.appendChild(enemyLine);
+        container.appendChild(img);
+        container.appendChild(statusTheGame);
+
+        window.application.renderBlock('PlayButton', container);
+        window.application.renderBlock('Win', container);
+    }
+
+    window.application.screens['Win'] = renderWinScreen;
+
+    function renderLose(container) {
+        const backToLobbyButton = document.createElement('button');
+        backToLobbyButton.classList.add('backToLobbyButton');
+        backToLobbyButton.textContent = 'В лобби';
+        
+        backToLobbyButton.addEventListener('click', () => {
+                window.application.renderScreen('lobby');
+        });
+
+        container.appendChild(backToLobbyButton);   
+    }
+
+    window.application.blocks['Lose'] = renderLose;
+
+    function renderLoseScreen() {
+        clearInterval(window.application.timers);
+        clearInterval(window.application.timersSecond);
+        clearInterval(window.application.timersThird);
+
+        const container = document.querySelector('.content');
+        container.textContent = '';
+
+        const title = document.createElement('h1');
+        title.classList.add('title');
+        title.textContent = 'Игра';
+
+        const enemyLine = document.createElement('p');
+        enemyLine.classList.add('enemy');
+        enemyLine.textContent = `Вы против ${window.application.enemy}`;
+
+        const img = document.createElement('img');
+        img.setAttribute('src', '/kursovay/image/lose.png');
+        img.classList.add('result-image');
+
+        const statusTheGame = document.createElement('h2');
+        statusTheGame.classList.add('statusTheGame');
+        statusTheGame.textContent = 'Вы проиграли!';
+
+        container.appendChild(title);
+        container.appendChild(enemyLine);
+        container.appendChild(img)
+        container.appendChild(statusTheGame);
+
+        window.application.renderBlock('PlayButton', container);
+        window.application.renderBlock('Lose', container);
+    }
+
+    window.application.screens['Lose'] = renderLoseScreen;
+</script>
+    <script src="/lib/request.js"></script>
+    <script src="index.js"></script>
+    <script src="start.json"></script>
+</body>
+</html>

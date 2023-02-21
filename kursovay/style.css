@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(212, 197, 195);
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: calc(50% - 150px);
+    padding-right: calc(50% - 150px);
+}
+
+.title {
+    padding-bottom: 60px;
+    max-width: 200px;
+    font-size: 21px;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.game__login {
+    opacity: 0.6;
+    font-size: 13px;
+}
+.loginScreen__input {
+    min-width: 176px;
+    margin-bottom: 30px;
+    min-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.loginScreen__button {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+}
+
+.lobbyScreen__button {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.player-list {
+    margin-bottom: 40px;
+    font-size: 18px;
+    max-width: 50px;
+    text-align: center;
+}
+
+.enemy {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.statusTheGame {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rgb(187, 56, 56);
+}
+
+.rockButton {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.scissorsButton {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.paperButton {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.playButtonMore {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.backToLobbyButton {
+    min-width: 200px;
+    min-height: 34px;
+    cursor: pointer;
+    background-color: rgb(55, 55, 163);
+    color: #fff;
+}
+
+.result-image {
+     
+}

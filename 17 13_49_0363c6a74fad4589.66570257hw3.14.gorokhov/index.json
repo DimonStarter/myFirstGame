@@ -1,0 +1,5 @@
+{
+	"title": "Главная страница",
+	"subtitle": "Поздаголовок главной страницы",
+	"body": "<a href='about.html'>about</a><a href='contacts.html'>contacts</a>"
+}
