@@ -139,6 +139,8 @@
             clearInterval(window.application.timers);
             clearInterval(window.application.timersSecond);
             clearInterval(window.application.timersThird);
+            window.application.idMatch = '';
+            window.application.enemy = '';
 
             request({
                 url: `${backURL}start`,
@@ -392,6 +394,8 @@
         backToLobbyButton.textContent = 'В лобби';
 
         backToLobbyButton.addEventListener('click', () => {
+            window.application.idMatch = '';
+            window.application.enemy = '';
             window.application.renderScreen('lobby');
         });
 
@@ -441,7 +445,9 @@
         backToLobbyButton.textContent = 'В лобби';
         
         backToLobbyButton.addEventListener('click', () => {
-                window.application.renderScreen('lobby');
+            window.application.idMatch = '';
+            window.application.enemy = '';
+            window.application.renderScreen('lobby');
         });
 
         container.appendChild(backToLobbyButton);   
