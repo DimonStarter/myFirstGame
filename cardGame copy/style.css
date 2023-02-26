@@ -3,8 +3,17 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: StratosSkyeng;
+    src: url("/DesktopFonts/stratosskyeng-black.otf"), url("/DesktopFonts/stratosskyeng-blackitalic.otf"), url("/DesktopFonts/stratosskyeng-bold.otf"), url("/DesktopFonts/stratosskyeng-bolditalic.otf"), url("/DesktopFonts/stratosskyeng-extrabold.otf"), url("/DesktopFonts/stratosskyeng-extrabolditalic.otf"), url("/DesktopFonts/stratosskyeng-extralight.otf"), url("/DesktopFonts/stratosskyeng-extralightitalic.otf"), url("/DesktopFonts/stratosskyeng-italic.otf"), url("/DesktopFonts/stratosskyeng-light.otf"), url("/DesktopFonts/stratosskyeng-lightitalic.otf"), url("/DesktopFonts/stratosskyeng-medium.otf"), url("/DesktopFonts/stratosskyeng-mediumitalic.otf"), url("/DesktopFonts/stratosskyeng-regular.otf"), url("/DesktopFonts/stratosskyeng-semibold.otf"), url("/DesktopFonts/stratosskyeng-semibolditalic.otf"), url("/DesktopFonts/stratosskyeng-semilight.otf"), url("/DesktopFonts/stratosskyeng-semilightitalic.otf"), url("/DesktopFonts/stratosskyeng-thin.otf"), url("/DesktopFonts/stratosskyeng-thinitalic.otf");
+}
+
+/* @font-face {
+    font-family: "StratosSkyeng";
+    src: url("/WebFonts/stratosskyengweb-regular.woff"), url("/WebFonts/stratosskyengweb-black.woff"), url("/WebFonts/stratosskyengweb-black.woff2"), url("/WebFonts/stratosskyengweb-blackitalic.woff"), url("/WebFonts/stratosskyengweb-blackitalic.woff2"), url("/WebFonts/stratosskyengweb-bold.woff"), url("/WebFonts/stratosskyengweb-bold.woff2"), url("/WebFonts/stratosskyengweb-bolditalic.woff"), url("/WebFonts/stratosskyengweb-bolditalic.woff2"), url("/WebFonts/stratosskyengweb-extrabold.woff"), url("/WebFonts/stratosskyengweb-extrabold.woff2"), url("/WebFonts/stratosskyengweb-extrabolditalic.woff"), url("/WebFonts/stratosskyengweb-extrabolditalic.woff2"), url("/WebFonts/stratosskyengweb-extralight.woff"), url("/WebFonts/stratosskyengweb-extralight.woff2"), url("/WebFonts/stratosskyengweb-extralightitalic.woff"), url("/WebFonts/stratosskyengweb-extralightitalic.woff2"), url("/WebFonts/stratosskyengweb-italic.woff"), url("/WebFonts/stratosskyengweb-italic.woff2"), url("/WebFonts/stratosskyengweb-light.woff"), url("/WebFonts/stratosskyengweb-light.woff2"), url("/WebFonts/stratosskyengweb-lightitalic.woff"), url("/WebFonts/stratosskyengweb-lightitalic.woff2"), url("/WebFonts/stratosskyengweb-medium.woff"), url("/WebFonts/stratosskyengweb-medium.woff2"), url("/WebFonts/stratosskyengweb-mediumitalic.woff"), url("/WebFonts/stratosskyengweb-mediumitalic.woff2"), url("/WebFonts/stratosskyengweb-regular.woff"), url("/WebFonts/stratosskyengweb-regular.woff2"), url("/WebFonts/stratosskyengweb-semibold.woff"), url("/WebFonts/stratosskyengweb-semibold.woff2"), url("/WebFonts/stratosskyengweb-semibolditalic.woff"), url("/WebFonts/stratosskyengweb-semibolditalic.woff2"), url("/WebFonts/stratosskyengweb-semilight.woff"), url("/WebFonts/stratosskyengweb-semilight.woff2"), url("/WebFonts/stratosskyengweb-semilightitalic.woff"), url("/WebFonts/stratosskyengweb-semilightitalic.woff2"), url("/WebFonts/stratosskyengweb-thin.woff"), url("/WebFonts/stratosskyengweb-thin.woff2"), url("/WebFonts/stratosskyengweb-thinitalic.woff"), url("/WebFonts/stratosskyengweb-thinitalic.woff2");
+}  */
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #004980;
 }
 
