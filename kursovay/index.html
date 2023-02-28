@@ -101,7 +101,8 @@
 
         container.appendChild(ul);
 
-        window.application.timers.push(setInterval(playerListRefresh, 1000));
+        // window.application.timers.push(setInterval(playerListRefresh, 1000));
+        window.application.timers = setInterval(playerListRefresh, 1000);
 
         function playerListRefresh () {
             request ({
@@ -186,7 +187,8 @@
     window.application.screens['lobby'] = renderLobbyScreen;
 
     function renderWaitingTheGame(container) {
-        window.application.timersSecond.push(setInterval(WaitingForPlayerConnectRefresh, 500));
+        // window.application.timersSecond.push(setInterval(WaitingForPlayerConnectRefresh, 500));
+        window.application.timersSecond = setInterval(WaitingForPlayerConnectRefresh, 500);
         
         function WaitingForPlayerConnectRefresh() {
             request ({
@@ -274,7 +276,7 @@
                             case 'lose':
                                 window.application.renderScreen('Lose');
                                 break;
-                            case 'Win':
+                            case 'win':
                                 window.application.renderScreen('Win');
                                 break;
                             default:
@@ -333,7 +335,8 @@
         
 
     function renderWaitingTheEnemyMove(container) {
-        window.application.timersThird.push(setInterval(WaitingForPlayerMoveRefresh, 500));
+        // window.application.timersThird.push(setInterval(WaitingForPlayerMoveRefresh, 500));
+        window.application.timersThird = setInterval(WaitingForPlayerMoveRefresh, 500);
 
         function WaitingForPlayerMoveRefresh() {
             request ({
