@@ -8,7 +8,15 @@ function renderStartButton(container) {
         if (window.application.challenge === '') {
             alert('Выберите уровень сложности!');
         } else {
-            console.log(`click`);
+            if (window.application.challenge === 'easy') {
+                window.application.renderScreen('easy');
+            } else if (window.application.challenge === 'medium') {
+                window.application.renderScreen('medium');
+            } else if (window.application.challenge === 'hard') {
+                window.application.renderScreen('hard');
+            } else {
+                console.log(`Ошибка, обновите страницу!`);
+            }
         } 
     });
 
