@@ -1,16 +1,11 @@
 function generatingEasyCards(container) {
-    
+    const 
 }
 
-window.application.blocks[''] = generatingEasyCards;
-
-
-
-
+window.application.blocks[""] = generatingEasyCards;
 
 function renderScreenEasyChallenge() {
-    container.textContent = '';
+    container.textContent = " ";
 }
 
-window.application.screens['easy'] = renderScreenEasyChallenge; 
-
+window.application.screens["easy"] = renderScreenEasyChallenge;
