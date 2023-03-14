@@ -1,16 +1,17 @@
-const noop = () => { };
+/* eslint-disable no-unused-vars */
+const noop = () => {};
 const NO_PARAMS = {};
 const NO_HEADERS = {};
 const OK_200 = [200];
 
 function request({
-    method = 'GET', // тип запроса
+    method = "GET", // тип запроса
     url, // url на который шлем запрос
     params = NO_PARAMS, // список query параметров
     headers = NO_HEADERS, // список заголовков запроса
     body, // тело запроса, данные которые мы отправляем
-    responseType = 'json', // тип ответа
-    requestType = 'json', // тип запроса при отправке данных
+    responseType = "json", // тип ответа
+    requestType = "json", // тип запроса при отправке данных
     okResponse = OK_200, // коды статусов обрабатываемых ответов
     checkStatusInResponse = false, // флаг для проверки статуса ответа
     onSuccess = noop, // функция обработки успешного ответа
@@ -25,7 +26,7 @@ function request({
 
     // конфигурация запроса перед отправкой, устанавливаем метод,
     // url и добавляем query параметры, если они были переданы в поле params
-    req.open(method, url + (queryString ? `?${queryString}` : ''));
+    req.open(method, url + (queryString ? `?${queryString}` : ""));
 
     // устанавливаем заголовки, если был передан список заголовков в поле headers
     Object.keys(headers).forEach((key) => {
@@ -46,7 +47,7 @@ function request({
         }
 
         // проверяем статус в ответе
-        if (checkStatusInResponse && target.response.status !== 'ok') {
+        if (checkStatusInResponse && target.response.status !== "ok") {
             onError(target.statusText);
             return;
         }
@@ -64,15 +65,18 @@ function request({
     let dataBody = body;
 
     // устанавливаем заголовки и формат отправки данных
-    // в зависимости от типа запроса 
-    if (requestType === 'urlencoded') {
-        req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    // в зависимости от типа запроса
+    if (requestType === "urlencoded") {
+        req.setRequestHeader(
+            "content-type",
+            "application/x-www-form-urlencoded"
+        );
         const bodyParams = new URLSearchParams(body);
         dataBody = bodyParams.toString();
-    }   
+    }
 
-    if (requestType === 'json') {
-        req.setRequestHeader('Content-type', 'application/json');
+    if (requestType === "json") {
+        req.setRequestHeader("Content-type", "application/json");
         dataBody = JSON.stringify(body);
     }
 

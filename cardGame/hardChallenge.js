@@ -1,17 +1,7 @@
-function generatingHardCards(container) {
-    
+function generatingHardCards() {}
 
-   
-}
+window.application.blocks[""] = generatingHardCards;
 
-window.application.blocks[''] = generatingHardCards;
+function renderScreenHardChallenge() {}
 
-
-
-
-
-function renderScreenHardChallenge() {
-    container.textContent = '';
-}
-
-window.application.screens['hard'] = renderScreenHardChallenge; 
+window.application.screens["hard"] = renderScreenHardChallenge;

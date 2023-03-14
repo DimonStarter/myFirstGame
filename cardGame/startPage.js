@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 function renderStartButton(container) {
     const startButton = document.createElement("button");
 
