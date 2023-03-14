@@ -1,17 +1,7 @@
-function generatingMediumCards(container) {
-    
+function generatingMediumCards() {}
 
-   
-}
+window.application.blocks[""] = generatingMediumCards;
 
-window.application.blocks[''] = generatingMediumCards;
+function renderScreenMediumChallenge() {}
 
-
-
-
-
-function renderScreenMediumChallenge() {
-    container.textContent = '';
-}
-
-window.application.screens['medium'] = renderScreenMediumChallenge; 
+window.application.screens["medium"] = renderScreenMediumChallenge;
