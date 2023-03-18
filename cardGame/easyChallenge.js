@@ -1,5 +1,10 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-constant-condition */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+
+// import "./style.css";
+
 function generatingEasyCards(container) {
     const battleField = document.createElement("div");
     battleField.classList.add("battle-field");
@@ -7,7 +12,75 @@ function generatingEasyCards(container) {
     const scene = document.createElement("div");
     scene.classList.add("scene");
 
-    const CARD = document.createElement("div");
+    let cardData = [];
+
+    function generateRandomCards() {
+        let cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
+        for (let i = 0; i < 3; i++) {
+            cardData.push(cardListRandom[i]);
+        }
+        cardData = cardData.concat(cardData);
+    }
+
+    function createCard(cardData) {
+        const card = document.createElement("div");
+        card.classList.add("CARD");
+
+        const cardFront = document.createElement("div");
+        cardFront.classList.add("card-face", "card-face-front");
+        card.append(cardFront);
+
+        const cardBack = document.createElement("div");
+        cardBack.classList.add("card-face", "card-face-back");
+        cardBack.style.backgroundImage = `url("${cardData.img}")`;
+        card.append(cardBack);
+
+        card.addEventListener("click", function () {
+            if (
+                window.application.timerPlaying == [] ||
+                window.application.timerPlaying == ""
+            ) {
+                alert("Запусти таймер, чтобы начать играть!");
+            } else {
+                card.classList.toggle("is-flipped");
+                card.setAttribute("id", `${cardData.id}`);
+                window.application.pickedCards.push(card.getAttribute("id"));
+
+                if (
+                    window.application.pickedCards[0] ===
+                    window.application.pickedCards[1]
+                ) {
+                    alert("Вы выиграли!");
+                }
+
+                if (window.application.pickedCards.length > 6) {
+                    window.application.pickedCards = [];
+                    alert("Начни игру заново, ты проиграл!");
+                }
+            }
+        });
+
+        return card;
+    }
+
+    function renderCards() {
+        cardData.forEach((cardEl) => {
+            const card = createCard(cardEl);
+            scene.append(card);
+        });
+    }
+    generateRandomCards();
+    renderCards();
+
+    scene.querySelectorAll(".CARD").forEach((card) => {
+        console.log(card);
+        card.classList.add("is-flipped");
+        setTimeout(() => {
+            card.classList.remove("is-flipped");
+        }, 5000);
+    });
+
+    /* const CARD = document.createElement("div");
     CARD.classList.add("CARD");
 
     const cardFront = document.createElement("div");
@@ -83,12 +156,12 @@ function generatingEasyCards(container) {
 
     CARDSIX.addEventListener("click", function () {
         CARDSIX.classList.toggle("is-flipped");
-    });
+    }); */
 
     container.appendChild(battleField);
     battleField.appendChild(scene);
-    scene.appendChild(CARD);
-    scene.appendChild(CARDTWO);
+    /* scene.appendChild(CARD); */
+    /* scene.appendChild(CARDTWO);
     scene.appendChild(CARDTHREE);
     scene.appendChild(CARDFOUR);
     scene.appendChild(CARDFIVE);
@@ -104,10 +177,19 @@ function generatingEasyCards(container) {
     CARDFIVE.appendChild(CARDFIVEFRONT);
     CARDFIVE.appendChild(CARDFIVEBACK);
     CARDSIX.appendChild(CARDSIXFRONT);
-    CARDSIX.appendChild(CARDSIXBACK);
+    CARDSIX.appendChild(CARDSIXBACK); */
+
+    // let randomCards = generateRandomCards();
+
+    //     randomCards
+
+    //     randomCards.forEach(element => {
+    //         element.map((user) => user.name).join(", ");
+    //         console.log(element);
+    //     });
 }
 
-window.application.blocks["generateCards"] = generatingEasyCards;
+window.application.blocks["generateEasyCards"] = generatingEasyCards;
 
 function renderScreenEasyChallenge() {
     container.textContent = " ";
@@ -144,6 +226,7 @@ function renderScreenEasyChallenge() {
         now = Date.now();
         mins = 0;
         timer = setInterval(time);
+        window.application.timerPlaying = setInterval(time);
     };
 
     const tryAgainButton = document.createElement("button");
@@ -153,6 +236,8 @@ function renderScreenEasyChallenge() {
     tryAgainButton.addEventListener("click", () => {
         window.application.challenge = "";
         window.application.renderScreen("start");
+        window.application.pickedCards = [];
+        window.application.timerPlaying = [];
     });
 
     container.appendChild(header);
@@ -160,7 +245,7 @@ function renderScreenEasyChallenge() {
     header.appendChild(timerField);
     header.appendChild(tryAgainButton);
 
-    window.application.renderBlock("generateCards", container);
+    window.application.renderBlock("generateEasyCards", container);
 }
 
 window.application.screens["easy"] = renderScreenEasyChallenge;
