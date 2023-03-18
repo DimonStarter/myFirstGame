@@ -1,3 +1,6 @@
+/*!**********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./cardGame/style.css ***!
+  \**********************************************************************/
 /* stylelint-disable font-family-name-quotes */
 /* stylelint-disable font-family-no-missing-generic-family-keyword */
 /* stylelint-disable selector-class-pattern */
@@ -34,47 +37,47 @@
     font-family: "StratosSkyeng";
     font-weight: 400;
     font-style: normal;
-    src: url("/cardGame/WebFonts/stratosskyengweb-regular.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-black.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-black.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-blackitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-blackitalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-bold.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-bold.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-bolditalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-bolditalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-extrabold.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-extrabold.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-extrabolditalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-extrabolditalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-extralight.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-extralight.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-extralightitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-extralightitalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-italic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-italic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-light.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-light.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-lightitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-lightitalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-medium.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-medium.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-mediumitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-mediumitalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-regular.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-regular.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-semibold.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-semibold.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-semibolditalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-semibolditalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-semilight.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-semilight.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-semilightitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-semilightitalic.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-thin.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-thin.woff2"),
-        url("/cardGame/WebFonts/stratosskyengweb-thinitalic.woff"),
-        url("/cardGame/WebFonts/stratosskyengweb-thinitalic.woff2");
+    src: url(d7d99bd522cf2d77ce4a.woff),
+        url(e23eaa28311b694d782e.woff),
+        url(3e7fbd1c96136268b439.woff2),
+        url(6200b1d6741055acdb18.woff),
+        url(c6470f418ee78e15187e.woff2),
+        url(d6757d9575dd0534901e.woff),
+        url(f32328dd9e54950118f3.woff2),
+        url(88f224b595299e66f07a.woff),
+        url(5e9364a2d5edc5b8ebab.woff2),
+        url(b552b06bad407f0c6d63.woff),
+        url(9813678437f0aeb568de.woff2),
+        url(c81825adbea558d05536.woff),
+        url(aee9c6cf76fe3a2abe96.woff2),
+        url(e24f4593b56f8953f0c0.woff),
+        url(4b76d343cc6e5751fc28.woff2),
+        url(e785386510cab9ffba20.woff),
+        url(765978caf6aa44ded0ed.woff2),
+        url(6320e8da9d675892fa8d.woff),
+        url(8034ccc7d4434de680af.woff2),
+        url(1813cfbf26d0d08a626a.woff),
+        url(cf1f564911dcb70c66c5.woff2),
+        url(d2148357d1f9ca398bf8.woff),
+        url(06c8be90c7f4e91dadc4.woff2),
+        url(2579e9c3960368e4752b.woff),
+        url(df607770dd56217f1c94.woff2),
+        url(c16c81d512680dcce8b2.woff),
+        url(9d0d5d6bb68d9ac9d811.woff2),
+        url(d7d99bd522cf2d77ce4a.woff),
+        url(ce93393e831d32412096.woff2),
+        url(e610c7e0d330e3647a9f.woff),
+        url(ccd34492ebe836c01f3d.woff2),
+        url(a3391198546245820848.woff),
+        url(8a24f8babadc4b38030b.woff2),
+        url(1e49990d9395319be12c.woff),
+        url(f53f4f95055cd086dd04.woff2),
+        url(a87a81ec79380276c2aa.woff),
+        url(022c25095a9b0b88058c.woff2),
+        url(b26071954da0a1a45eb6.woff),
+        url(6c7ba590257f388c8bd3.woff2),
+        url(12c83cd6b7421e0411cf.woff),
+        url(c7a66a92e1f15a0904ca.woff2);
 }
 
 body {
@@ -192,15 +195,14 @@ body {
 }
 
 .battle-field {
-    height: 500px;
+    height: 300px;
     width: 600px;
 }
 
 .scene {
     display: flex;
-    flex-wrap: wrap;
-    width: 700px;
-    height: 155px;
+    width: 600px;
+    height: 133px;
     margin: 40px 0;
     perspective: 600px;
 }
@@ -227,12 +229,12 @@ body {
 }
 
 .card-face-front {
-    background-image: url("/cardGame/image/backCard.png");
+    background-image: url(7cecdc0a37301b7c41e6.png);
     background-repeat: no-repeat;
 }
 
 .card-face-back {
-    background-image: url("/cardGame/image/ace-of-clubs.png");
+    background-image: url(edba6c3a2f933cfaab4f.png);
     background-repeat: no-repeat;
     transform: rotateY(180deg);
 }
@@ -240,3 +242,6 @@ body {
 .CARD.is-flipped {
     transform: rotateY(180deg);
 }
+
+
+/*# sourceMappingURL=main.css.map*/
