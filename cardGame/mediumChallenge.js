@@ -1,6 +1,9 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+
+import "./style.css";
+
 function generatingMediumCards(container) {
     const battleField = document.createElement("div");
     battleField.classList.add("battle-field");
@@ -47,6 +50,15 @@ function generatingMediumCards(container) {
                     window.application.pickedCards[1]
                 ) {
                     alert("Вы выиграли!");
+                }
+
+                if (window.application.pickedCards.length === 2) {
+                    if (
+                        window.application.pickedCards[0] !==
+                        window.application.pickedCards[1]
+                    ) {
+                        alert("Вы проиграли!");
+                    }
                 }
 
                 if (window.application.pickedCards.length > 12) {

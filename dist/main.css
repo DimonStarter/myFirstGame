@@ -195,14 +195,15 @@ body {
 }
 
 .battle-field {
-    height: 300px;
+    height: 500px;
     width: 600px;
 }
 
 .scene {
     display: flex;
-    width: 600px;
-    height: 133px;
+    flex-wrap: wrap;
+    width: 700px;
+    height: 155px;
     margin: 40px 0;
     perspective: 600px;
 }

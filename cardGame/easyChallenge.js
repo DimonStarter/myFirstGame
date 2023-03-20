@@ -53,6 +53,15 @@ function generatingEasyCards(container) {
                     alert("Вы выиграли!");
                 }
 
+                if (window.application.pickedCards.length === 2) {
+                    if (
+                        window.application.pickedCards[0] !==
+                        window.application.pickedCards[1]
+                    ) {
+                        alert("Вы проиграли!");
+                    }
+                }
+
                 if (window.application.pickedCards.length > 6) {
                     window.application.pickedCards = [];
                     alert("Начни игру заново, ты проиграл!");

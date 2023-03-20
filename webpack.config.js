@@ -7,14 +7,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
-    entry: [
-        "./cardGame/startPage.js",
-        "./cardGame/easyChallenge.js",
-        "./cardGame/mediumChallenge.js",
-        "./cardGame/hardChallenge.js",
-        "/cardGame/lib/request.js",
-        "./cardGame/style.css",
-    ],
+    entry: ["./cardGame/startPage.js"],
     mode: isProduction ? "production" : "development",
     output: {
         path: path.resolve(__dirname, "dist"),

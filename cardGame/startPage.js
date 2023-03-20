@@ -1,4 +1,8 @@
 /* eslint-disable no-undef */
+import "./style.css";
+import "./easyChallenge.js";
+import "./mediumChallenge.js";
+import "./hardChallenge.js";
 
 function renderStartButton(container) {
     const startButton = document.createElement("button");
