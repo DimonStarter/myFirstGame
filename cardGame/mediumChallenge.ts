@@ -1,24 +1,35 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-function generatingHardCards(container) {
+/* eslint-disable no-unused-vars */
+import shuffledCardList from "./cardListData";
+
+function generatingMediumCards() {
+    const container: HTMLElement = document.querySelector(".app")!;
     const battleField = document.createElement("div");
     battleField.classList.add("battle-field");
 
     const scene = document.createElement("div");
     scene.classList.add("scene");
 
-    let cardData = [];
+    type Card = {
+        id: number;
+        name: string;
+        img: string;
+    };
+
+    let cardData: Card[] = [];
 
     function generateRandomCards() {
-        let cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
-        for (let i = 0; i < 9; i++) {
+        const cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
+        for (let i = 0; i < 6; i++) {
             cardData.push(cardListRandom[i]);
         }
         cardData = cardData.concat(cardData);
     }
 
-    function createCard(cardData) {
+    function createCard(cardData: Card) {
         const card = document.createElement("div");
         card.classList.add("CARD");
 
@@ -32,12 +43,7 @@ function generatingHardCards(container) {
         card.append(cardBack);
 
         card.addEventListener("click", function () {
-            if (
-                window.application.timerPlaying == [] ||
-                window.application.timerPlaying == ""
-            ) {
-                alert("Запусти таймер, чтобы начать играть!");
-            } else {
+            if (window.application.timerPlaying !== "") {
                 card.classList.toggle("is-flipped");
                 card.setAttribute("id", `${cardData.id}`);
                 window.application.pickedCards.push(card.getAttribute("id"));
@@ -46,7 +52,8 @@ function generatingHardCards(container) {
                     window.application.pickedCards[0] ===
                     window.application.pickedCards[1]
                 ) {
-                    alert("Вы выиграли!");
+                    window.application.renderScreen("winScreen");
+                    clearInterval(window.application.timerPlaying);
                 }
 
                 if (window.application.pickedCards.length === 2) {
@@ -54,14 +61,17 @@ function generatingHardCards(container) {
                         window.application.pickedCards[0] !==
                         window.application.pickedCards[1]
                     ) {
-                        alert("Вы проиграли!");
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
                     }
                 }
 
-                if (window.application.pickedCards.length > 18) {
+                if (window.application.pickedCards.length > 12) {
                     window.application.pickedCards = [];
                     alert("Начни игру заново, ты проиграл!");
                 }
+            } else {
+                alert("Запусти таймер, чтобы начать играть!");
             }
         });
 
@@ -89,9 +99,10 @@ function generatingHardCards(container) {
     battleField.appendChild(scene);
 }
 
-window.application.blocks["generateHardCards"] = generatingHardCards;
+window.application.blocks["generateMediumCards"] = generatingMediumCards;
 
-function renderScreenHardChallenge() {
+function renderScreenMediumChallenge() {
+    const container: HTMLElement = document.querySelector(".app")!;
     container.textContent = " ";
 
     const header = document.createElement("div");
@@ -102,7 +113,7 @@ function renderScreenHardChallenge() {
     buttonTime.textContent = "старт/сбросить";
 
     let secs,
-        now,
+        now: number,
         timer,
         mins = 0;
 
@@ -120,13 +131,14 @@ function renderScreenHardChallenge() {
             secs = "0" + secs;
         }
         timerField.innerHTML = mins + ":" + secs;
+        window.application.status = timerField;
     }
 
     buttonTime.onclick = function () {
         now = Date.now();
         mins = 0;
         timer = setInterval(time);
-        window.application.timerPlaying = setInterval(time);
+        window.application.timerPlaying = timer;
     };
 
     const tryAgainButton = document.createElement("button");
@@ -135,9 +147,10 @@ function renderScreenHardChallenge() {
 
     tryAgainButton.addEventListener("click", () => {
         window.application.challenge = "";
-        window.application.renderScreen("start");
         window.application.pickedCards = [];
-        window.application.timerPlaying = [];
+        window.application.timerPlaying = "";
+        window.application.status = "";
+        window.application.renderScreen("start");
     });
 
     container.appendChild(header);
@@ -145,7 +158,7 @@ function renderScreenHardChallenge() {
     header.appendChild(timerField);
     header.appendChild(tryAgainButton);
 
-    window.application.renderBlock("generateHardCards", container);
+    window.application.renderBlock("generateMediumCards", container);
 }
 
-window.application.screens["hard"] = renderScreenHardChallenge;
+window.application.screens["medium"] = renderScreenMediumChallenge;

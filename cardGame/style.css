@@ -240,3 +240,18 @@ body {
 .CARD.is-flipped {
     transform: rotateY(180deg);
 }
+
+.lastBlock {
+    background: #c2f5ff;
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.msg {
+    color: #004980;
+}
