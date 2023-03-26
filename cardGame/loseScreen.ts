@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-undef */
 function loseBlock(container: Element) {
     const buttonToStart = document.createElement("button");
