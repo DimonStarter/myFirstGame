@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 function templateEngine(block) {
     if (block === undefined || block === null || block === false) {
