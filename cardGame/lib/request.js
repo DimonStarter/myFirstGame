@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-vars */
 const noop = () => {};
 const NO_PARAMS = {};

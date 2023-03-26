@@ -1,10 +1,6 @@
 /* eslint-disable no-undef */
-import "./style.css";
-import "./easyChallenge.js";
-import "./mediumChallenge.js";
-import "./hardChallenge.js";
 
-function renderStartButton(container) {
+function renderStartButton(container: Element) {
     const startButton = document.createElement("button");
 
     startButton.textContent = "Старт";
@@ -32,6 +28,7 @@ function renderStartButton(container) {
 window.application.blocks["StartButton"] = renderStartButton;
 
 function renderStartScreen() {
+    const container: HTMLElement = document.querySelector(".app")!;
     container.textContent = "";
 
     const menu = document.createElement("div");

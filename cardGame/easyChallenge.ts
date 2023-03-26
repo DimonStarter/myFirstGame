@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-unused-vars */
@@ -5,24 +6,33 @@
 
 // import "./style.css";
 
-function generatingEasyCards(container) {
+import shuffledCardList from "./cardListData";
+
+function generatingEasyCards() {
+    const container: HTMLElement = document.querySelector(".app")!;
     const battleField = document.createElement("div");
     battleField.classList.add("battle-field");
 
     const scene = document.createElement("div");
     scene.classList.add("scene");
 
-    let cardData = [];
+    type Card = {
+        id: number;
+        name: string;
+        img: string;
+    };
+
+    let cardData: Card[] = [];
 
     function generateRandomCards() {
-        let cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
+        const cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
         for (let i = 0; i < 3; i++) {
             cardData.push(cardListRandom[i]);
         }
         cardData = cardData.concat(cardData);
     }
 
-    function createCard(cardData) {
+    function createCard(cardData: Card) {
         const card = document.createElement("div");
         card.classList.add("CARD");
 
@@ -36,12 +46,7 @@ function generatingEasyCards(container) {
         card.append(cardBack);
 
         card.addEventListener("click", function () {
-            if (
-                window.application.timerPlaying == [] ||
-                window.application.timerPlaying == ""
-            ) {
-                alert("Запусти таймер, чтобы начать играть!");
-            } else {
+            if (window.application.timerPlaying !== "") {
                 card.classList.toggle("is-flipped");
                 card.setAttribute("id", `${cardData.id}`);
                 window.application.pickedCards.push(card.getAttribute("id"));
@@ -50,7 +55,8 @@ function generatingEasyCards(container) {
                     window.application.pickedCards[0] ===
                     window.application.pickedCards[1]
                 ) {
-                    alert("Вы выиграли!");
+                    window.application.renderScreen("winScreen");
+                    clearInterval(window.application.timerPlaying);
                 }
 
                 if (window.application.pickedCards.length === 2) {
@@ -58,7 +64,8 @@ function generatingEasyCards(container) {
                         window.application.pickedCards[0] !==
                         window.application.pickedCards[1]
                     ) {
-                        alert("Вы проиграли!");
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
                     }
                 }
 
@@ -66,13 +73,15 @@ function generatingEasyCards(container) {
                     window.application.pickedCards = [];
                     alert("Начни игру заново, ты проиграл!");
                 }
+            } else {
+                alert("Запусти таймер, чтобы начать играть!");
             }
         });
 
         return card;
     }
 
-    function renderCards() {
+    function renderCards(): void {
         cardData.forEach((cardEl) => {
             const card = createCard(cardEl);
             scene.append(card);
@@ -201,6 +210,7 @@ function generatingEasyCards(container) {
 window.application.blocks["generateEasyCards"] = generatingEasyCards;
 
 function renderScreenEasyChallenge() {
+    const container: HTMLElement = document.querySelector(".app")!;
     container.textContent = " ";
 
     const header = document.createElement("div");
@@ -211,7 +221,7 @@ function renderScreenEasyChallenge() {
     buttonTime.textContent = "старт/сбросить";
 
     let secs,
-        now,
+        now: number,
         timer,
         mins = 0;
 
@@ -229,13 +239,14 @@ function renderScreenEasyChallenge() {
             secs = "0" + secs;
         }
         timerField.innerHTML = mins + ":" + secs;
+        window.application.status = timerField;
     }
 
     buttonTime.onclick = function () {
         now = Date.now();
         mins = 0;
         timer = setInterval(time);
-        window.application.timerPlaying = setInterval(time);
+        window.application.timerPlaying = timer;
     };
 
     const tryAgainButton = document.createElement("button");
@@ -244,9 +255,10 @@ function renderScreenEasyChallenge() {
 
     tryAgainButton.addEventListener("click", () => {
         window.application.challenge = "";
-        window.application.renderScreen("start");
         window.application.pickedCards = [];
-        window.application.timerPlaying = [];
+        window.application.timerPlaying = "";
+        window.application.status = "";
+        window.application.renderScreen("start");
     });
 
     container.appendChild(header);
