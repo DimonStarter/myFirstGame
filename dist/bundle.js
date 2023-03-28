@@ -469,6 +469,7 @@ const shuffledCardList = [
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cardListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardListData */ "./cardGame/cardListData.ts");
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-constant-condition */
@@ -707,6 +708,7 @@ window.application.screens["easy"] = renderScreenEasyChallenge;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cardListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardListData */ "./cardGame/cardListData.ts");
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
@@ -841,6 +843,7 @@ window.application.screens["hard"] = renderScreenHardChallenge;
 /***/ (() => {
 
 
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-undef */
 function loseBlock(container) {
     const buttonToStart = document.createElement("button");
@@ -893,6 +896,7 @@ window.application.screens["loseScreen"] = loseScreen;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cardListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardListData */ "./cardGame/cardListData.ts");
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-undef */
