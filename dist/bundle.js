@@ -48,7 +48,8 @@ window.application.pickedCards = [];
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "shuffledCardList": () => (/* binding */ shuffledCardList)
 /* harmony export */ });
 const shuffledCardList = [
     {
@@ -233,230 +234,6 @@ const shuffledCardList = [
     },
 ];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shuffledCardList);
-// const shuffledCardList = [
-//     {
-//         id: 1,
-//         name: "ace-of-clubs",
-//         img: "images/ace-of-clubs.png",
-//     },
-//     {
-//         id: 2,
-//         name: "king-of-clubs",
-//         img: "images/king-of-clubs.png",
-//     },
-//     {
-//         id: 3,
-//         name: "lady-of-clubs",
-//         img: "images/lady-of-clubs.png",
-//     },
-//     {
-//         id: 4,
-//         name: "jack-of-clubs",
-//         img: "images/jack-of-clubs.png",
-//     },
-//     {
-//         id: 5,
-//         name: "ten-of-clubs",
-//         img: "images/ten-of-clubs.png",
-//     },
-//     {
-//         id: 6,
-//         name: "nine-of-clubs",
-//         img: "images/nine-of-clubs.png",
-//     },
-//     {
-//         id: 7,
-//         name: "eight-of-clubs",
-//         img: "images/eight-of-clubs.png",
-//     },
-//     {
-//         id: 8,
-//         name: "seven-of-clubs",
-//         img: "images/seven-of-clubs.png",
-//     },
-//     {
-//         id: 9,
-//         name: "six-of-clubs",
-//         img: "images/six-of-clubs.png",
-//     },
-//     {
-//         id: 10,
-//         name: "ace-of-diamonds",
-//         img: "images/ace-of-diamonds.png",
-//     },
-//     {
-//         id: 11,
-//         name: "king-of-diamonds",
-//         img: "images/king-of-diamonds.png",
-//     },
-//     {
-//         id: 12,
-//         name: "lady-of-diamonds",
-//         img: "images/lady-of-diamonds.png",
-//     },
-//     {
-//         id: 13,
-//         name: "jack-of-diamonds",
-//         img: "images/jack-of-diamonds.png",
-//     },
-//     {
-//         id: 14,
-//         name: "ten-of-diamonds",
-//         img: "images/ten-of-diamonds.png",
-//     },
-//     {
-//         id: 15,
-//         name: "nine-of-diamonds",
-//         img: "images/nine-of-diamonds.png",
-//     },
-//     {
-//         id: 16,
-//         name: "eight-of-diamonds",
-//         img: "images/eight-of-diamonds.png",
-//     },
-//     {
-//         id: 17,
-//         name: "seven-of-diamonds",
-//         img: "images/seven-of-diamonds.png",
-//     },
-//     {
-//         id: 18,
-//         name: "six-of-diamonds",
-//         img: "images/six-of-diamonds.png",
-//     },
-//     {
-//         id: 19,
-//         name: "ace-of-hearts",
-//         img: "images/ace-of-hearts.png",
-//     },
-//     {
-//         id: 20,
-//         name: "king-of-hearts",
-//         img: "images/king-of-hearts.png",
-//     },
-//     {
-//         id: 21,
-//         name: "lady-of-hearts",
-//         img: "images/lady-of-hearts.png",
-//     },
-//     {
-//         id: 22,
-//         name: "jack-of-hearts",
-//         img: "images/jack-of-hearts.png",
-//     },
-//     {
-//         id: 23,
-//         name: "ten-of-hearts",
-//         img: "images/ten-of-hearts.png",
-//     },
-//     {
-//         id: 24,
-//         name: "nine-of-hearts",
-//         img: "images/nine-of-hearts.png",
-//     },
-//     {
-//         id: 25,
-//         name: "eight-of-hearts",
-//         img: "images/eight-of-hearts.png",
-//     },
-//     {
-//         id: 26,
-//         name: "seven-of-hearts",
-//         img: "images/seven-of-hearts.png",
-//     },
-//     {
-//         id: 27,
-//         name: "six-of-hearts",
-//         img: "images/six-of-hearts.png",
-//     },
-//     {
-//         id: 28,
-//         name: "ace-of-spades",
-//         img: "images/ace-of-spades.png",
-//     },
-//     {
-//         id: 29,
-//         name: "king-of-spades",
-//         img: "images/king-of-spades.png",
-//     },
-//     {
-//         id: 30,
-//         name: "lady-of-spades",
-//         img: "images/lady-of-spades.png",
-//     },
-//     {
-//         id: 31,
-//         name: "jack-of-spades",
-//         img: "images/jack-of-spades.png",
-//     },
-//     {
-//         id: 32,
-//         name: "ten-of-spades",
-//         img: "images/ten-of-spades.png",
-//     },
-//     {
-//         id: 33,
-//         name: "nine-of-spades",
-//         img: "images/nine-of-spades.png",
-//     },
-//     {
-//         id: 34,
-//         name: "eight-of-spades",
-//         img: "images/eight-of-spades.png",
-//     },
-//     {
-//         id: 35,
-//         name: "seven-of-spades",
-//         img: "images/seven-of-spades.png",
-//     },
-//     {
-//         id: 36,
-//         name: "six-of-spades",
-//         img: "images/six-of-spades.png",
-//     },
-// ];
-// let cardData = [];
-// function generateRandomCards() {
-//     let cardListRandom = shuffledCardList.sort(() => Math.random() - 0.5);
-//     for (let i = 0; i < 3; i++) {
-//         cardData.push(cardListRandom[i]);
-//     }
-//     cardData = cardData.concat(cardData);
-// }
-// function createCard() {
-//     const card = document.createElement("div");
-//     card.classList.add("CARD");
-//     const cardFront = document.createElement("div");
-//     cardFront.classList.add("card-face", "card-face-front");
-//     const cardBack = document.createElement("div");
-//     cardBack.classList.add("card-face", "card-face-back");
-//     card.addEventListener("click", function () {
-//         card.classList.toggle("is-flipped");
-//     });
-// }
-// function renderCards() {
-//     cardData.forEach((cardEl) => {
-//         createCard();
-//     });
-// }
-// if ((window.application.challenge = "easy")) {
-// }
-// const shuffle = (cards) => {
-//     let m = cards.length,
-//         t,
-//         i;
-//     // Пока есть элементы для перемешивания
-//     while (m) {
-//         // Взять оставшийся элемент
-//         i = Math.floor(Math.random() * m--);
-//         // И поменять его местами с текущим элементом
-//         t = cards[m];
-//         cards[m] = cards[i];
-//         cards[i] = t;
-//     }
-//     return cards;
-// };
-// // data.map(user => user.name).join(', ')
 
 
 /***/ }),
@@ -465,10 +242,14 @@ const shuffledCardList = [
 /*!***********************************!*\
   !*** ./cardGame/easyChallenge.ts ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "generateRandomCards": () => (/* binding */ generateRandomCards)
+/* harmony export */ });
 /* harmony import */ var _cardListData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardListData */ "./cardGame/cardListData.ts");
+/* module decorator */ module = __webpack_require__.hmd(module);
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable eqeqeq */
@@ -477,20 +258,13 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable no-undef */
 // import "./style.css";
 
+let cardData = [];
 function generatingEasyCards() {
     const container = document.querySelector(".app");
     const battleField = document.createElement("div");
     battleField.classList.add("battle-field");
     const scene = document.createElement("div");
     scene.classList.add("scene");
-    let cardData = [];
-    function generateRandomCards() {
-        const cardListRandom = _cardListData__WEBPACK_IMPORTED_MODULE_0__["default"].sort(() => Math.random() - 0.5);
-        for (let i = 0; i < 3; i++) {
-            cardData.push(cardListRandom[i]);
-        }
-        cardData = cardData.concat(cardData);
-    }
     function createCard(cardData) {
         const card = document.createElement("div");
         card.classList.add("CARD");
@@ -506,15 +280,28 @@ function generatingEasyCards() {
                 card.classList.toggle("is-flipped");
                 card.setAttribute("id", `${cardData.id}`);
                 window.application.pickedCards.push(card.getAttribute("id"));
-                if (window.application.pickedCards[0] ===
-                    window.application.pickedCards[1]) {
-                    window.application.renderScreen("winScreen");
-                    clearInterval(window.application.timerPlaying);
-                }
                 if (window.application.pickedCards.length === 2) {
                     if (window.application.pickedCards[0] !==
                         window.application.pickedCards[1]) {
                         window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 4) {
+                    if (window.application.pickedCards[2] !==
+                        window.application.pickedCards[3]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 6) {
+                    if (window.application.pickedCards[4] !==
+                        window.application.pickedCards[5]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                    else {
+                        window.application.renderScreen("winScreen");
                         clearInterval(window.application.timerPlaying);
                     }
                 }
@@ -544,109 +331,18 @@ function generatingEasyCards() {
             card.classList.remove("is-flipped");
         }, 5000);
     });
-    /* const CARD = document.createElement("div");
-    CARD.classList.add("CARD");
-
-    const cardFront = document.createElement("div");
-    cardFront.classList.add("card-face", "card-face-front");
-
-    const cardBack = document.createElement("div");
-    cardBack.classList.add("card-face", "card-face-back");
-
-    CARD.addEventListener("click", function () {
-        CARD.classList.toggle("is-flipped");
-    });
-
-    const CARDTWO = document.createElement("div");
-    CARDTWO.classList.add("CARD");
-
-    const CARDTWOFRONT = document.createElement("div");
-    CARDTWOFRONT.classList.add("card-face", "card-face-front");
-
-    const CARDTWOBACK = document.createElement("div");
-    CARDTWOBACK.classList.add("card-face", "card-face-back");
-
-    CARDTWO.addEventListener("click", function () {
-        CARDTWO.classList.toggle("is-flipped");
-    });
-
-    const CARDTHREE = document.createElement("div");
-    CARDTHREE.classList.add("CARD");
-
-    const CARDTHREEFRONT = document.createElement("div");
-    CARDTHREEFRONT.classList.add("card-face", "card-face-front");
-
-    const CARDTHREEBACK = document.createElement("div");
-    CARDTHREEBACK.classList.add("card-face", "card-face-back");
-
-    CARDTHREE.addEventListener("click", function () {
-        CARDTHREE.classList.toggle("is-flipped");
-    });
-
-    const CARDFOUR = document.createElement("div");
-    CARDFOUR.classList.add("CARD");
-
-    const CARDFOURFRONT = document.createElement("div");
-    CARDFOURFRONT.classList.add("card-face", "card-face-front");
-
-    const CARDFOURBACK = document.createElement("div");
-    CARDFOURBACK.classList.add("card-face", "card-face-back");
-
-    CARDFOUR.addEventListener("click", function () {
-        CARDFOUR.classList.toggle("is-flipped");
-    });
-
-    const CARDFIVE = document.createElement("div");
-    CARDFIVE.classList.add("CARD");
-
-    const CARDFIVEFRONT = document.createElement("div");
-    CARDFIVEFRONT.classList.add("card-face", "card-face-front");
-
-    const CARDFIVEBACK = document.createElement("div");
-    CARDFIVEBACK.classList.add("card-face", "card-face-back");
-
-    CARDFIVE.addEventListener("click", function () {
-        CARDFIVE.classList.toggle("is-flipped");
-    });
-
-    const CARDSIX = document.createElement("div");
-    CARDSIX.classList.add("CARD");
-
-    const CARDSIXFRONT = document.createElement("div");
-    CARDSIXFRONT.classList.add("card-face", "card-face-front");
-
-    const CARDSIXBACK = document.createElement("div");
-    CARDSIXBACK.classList.add("card-face", "card-face-back");
-
-    CARDSIX.addEventListener("click", function () {
-        CARDSIX.classList.toggle("is-flipped");
-    }); */
     container.appendChild(battleField);
     battleField.appendChild(scene);
-    /* scene.appendChild(CARD); */
-    /* scene.appendChild(CARDTWO);
-    scene.appendChild(CARDTHREE);
-    scene.appendChild(CARDFOUR);
-    scene.appendChild(CARDFIVE);
-    scene.appendChild(CARDSIX);
-    CARD.appendChild(cardFront);
-    CARD.appendChild(cardBack);
-    CARDTWO.appendChild(CARDTWOFRONT);
-    CARDTWO.appendChild(CARDTWOBACK);
-    CARDTHREE.appendChild(CARDTHREEFRONT);
-    CARDTHREE.appendChild(CARDTHREEBACK);
-    CARDFOUR.appendChild(CARDFOURFRONT);
-    CARDFOUR.appendChild(CARDFOURBACK);
-    CARDFIVE.appendChild(CARDFIVEFRONT);
-    CARDFIVE.appendChild(CARDFIVEBACK);
-    CARDSIX.appendChild(CARDSIXFRONT);
-    CARDSIX.appendChild(CARDSIXBACK); */
-    // let randomCards = generateRandomCards();
-    //     randomCards
-    //     randomCards.forEach(element => {
-    //         element.map((user) => user.name).join(", ");
-    //         console.log(element);
-    //     });
+}
+function generateRandomCards() {
+    let generated = [];
+    const cardListRandom = _cardListData__WEBPACK_IMPORTED_MODULE_0__["default"].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < 3; i++) {
+        generated.push(cardListRandom[i]);
+    }
+    generated = generated.concat(generated);
+    cardData = generated;
+    return generated;
 }
 window.application.blocks["generateEasyCards"] = generatingEasyCards;
 function renderScreenEasyChallenge() {
@@ -696,6 +392,9 @@ function renderScreenEasyChallenge() {
     window.application.renderBlock("generateEasyCards", container);
 }
 window.application.screens["easy"] = renderScreenEasyChallenge;
+module.exports = {
+    generateRandomCards,
+};
 
 
 /***/ }),
@@ -743,15 +442,70 @@ function generatingHardCards() {
                 card.classList.toggle("is-flipped");
                 card.setAttribute("id", `${cardData.id}`);
                 window.application.pickedCards.push(card.getAttribute("id"));
-                if (window.application.pickedCards[0] ===
-                    window.application.pickedCards[1]) {
-                    window.application.renderScreen("winScreen");
-                    clearInterval(window.application.timerPlaying);
-                }
                 if (window.application.pickedCards.length === 2) {
                     if (window.application.pickedCards[0] !==
                         window.application.pickedCards[1]) {
                         window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 4) {
+                    if (window.application.pickedCards[2] !==
+                        window.application.pickedCards[3]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 6) {
+                    if (window.application.pickedCards[4] !==
+                        window.application.pickedCards[5]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 8) {
+                    if (window.application.pickedCards[6] !==
+                        window.application.pickedCards[7]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 10) {
+                    if (window.application.pickedCards[8] !==
+                        window.application.pickedCards[9]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 12) {
+                    if (window.application.pickedCards[10] !==
+                        window.application.pickedCards[11]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 14) {
+                    if (window.application.pickedCards[12] !==
+                        window.application.pickedCards[13]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 16) {
+                    if (window.application.pickedCards[14] !==
+                        window.application.pickedCards[15]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 18) {
+                    if (window.application.pickedCards[16] !==
+                        window.application.pickedCards[17]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                    else {
+                        window.application.renderScreen("winScreen");
                         clearInterval(window.application.timerPlaying);
                     }
                 }
@@ -846,14 +600,18 @@ window.application.screens["hard"] = renderScreenHardChallenge;
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-undef */
 function loseBlock(container) {
+    function toResetSettings() {
+        window.application.challenge = "";
+        window.application.status = "";
+        window.application.timerPlaying = "";
+        window.application.generatedCards = "";
+        window.application.pickedCards = [];
+    }
     const buttonToStart = document.createElement("button");
     buttonToStart.classList.add("btn");
     buttonToStart.textContent = "Играть снова";
     buttonToStart.addEventListener("click", () => {
-        window.application.challenge = "";
-        window.application.pickedCards = [];
-        window.application.timerPlaying = "";
-        window.application.status = "";
+        toResetSettings();
         window.application.renderScreen("start");
     });
     container.appendChild(buttonToStart);
@@ -931,15 +689,49 @@ function generatingMediumCards() {
                 card.classList.toggle("is-flipped");
                 card.setAttribute("id", `${cardData.id}`);
                 window.application.pickedCards.push(card.getAttribute("id"));
-                if (window.application.pickedCards[0] ===
-                    window.application.pickedCards[1]) {
-                    window.application.renderScreen("winScreen");
-                    clearInterval(window.application.timerPlaying);
-                }
                 if (window.application.pickedCards.length === 2) {
                     if (window.application.pickedCards[0] !==
                         window.application.pickedCards[1]) {
                         window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 4) {
+                    if (window.application.pickedCards[2] !==
+                        window.application.pickedCards[3]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 6) {
+                    if (window.application.pickedCards[4] !==
+                        window.application.pickedCards[5]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 8) {
+                    if (window.application.pickedCards[6] !==
+                        window.application.pickedCards[7]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 10) {
+                    if (window.application.pickedCards[8] !==
+                        window.application.pickedCards[9]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                }
+                if (window.application.pickedCards.length === 12) {
+                    if (window.application.pickedCards[10] !==
+                        window.application.pickedCards[11]) {
+                        window.application.renderScreen("loseScreen");
+                        clearInterval(window.application.timerPlaying);
+                    }
+                    else {
+                        window.application.renderScreen("winScreen");
                         clearInterval(window.application.timerPlaying);
                     }
                 }
@@ -1031,6 +823,7 @@ window.application.screens["medium"] = renderScreenMediumChallenge;
 /***/ (() => {
 
 
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-undef */
 function renderStartButton(container) {
     const startButton = document.createElement("button");
@@ -1137,14 +930,18 @@ window.application.renderScreen("start");
 // import Img from "./image/win.png";
 /* eslint-disable no-undef */
 function winBlock(container) {
+    function toResetSettings() {
+        window.application.challenge = "";
+        window.application.status = "";
+        window.application.timerPlaying = "";
+        window.application.generatedCards = "";
+        window.application.pickedCards = [];
+    }
     const buttonToStart = document.createElement("button");
     buttonToStart.classList.add("btn");
     buttonToStart.textContent = "Играть снова";
     buttonToStart.addEventListener("click", () => {
-        window.application.challenge = "";
-        window.application.pickedCards = [];
-        window.application.timerPlaying = "";
-        window.application.status = "";
+        toResetSettings();
         window.application.renderScreen("start");
     });
     container.appendChild(buttonToStart);
@@ -1193,13 +990,16 @@ window.application.screens["winScreen"] = winScreen;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -1227,6 +1027,21 @@ window.application.screens["winScreen"] = winScreen;
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/harmony module decorator */
+/******/ 	(() => {
+/******/ 		__webpack_require__.hmd = (module) => {
+/******/ 			module = Object.create(module);
+/******/ 			if (!module.children) module.children = [];
+/******/ 			Object.defineProperty(module, 'exports', {
+/******/ 				enumerable: true,
+/******/ 				set: () => {
+/******/ 					throw new Error('ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: ' + module.id);
+/******/ 				}
+/******/ 			});
+/******/ 			return module;
 /******/ 		};
 /******/ 	})();
 /******/ 	
