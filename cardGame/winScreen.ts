@@ -1,16 +1,21 @@
 // import Img from "./image/win.png";
 
 /* eslint-disable no-undef */
+
 function winBlock(container: Element) {
+    function toResetSettings() {
+        window.application.challenge = "";
+        window.application.status = "";
+        window.application.timerPlaying = "";
+        window.application.generatedCards = "";
+        window.application.pickedCards = [];
+    }
     const buttonToStart = document.createElement("button");
     buttonToStart.classList.add("btn");
     buttonToStart.textContent = "Играть снова";
 
     buttonToStart.addEventListener("click", () => {
-        window.application.challenge = "";
-        window.application.pickedCards = [];
-        window.application.timerPlaying = "";
-        window.application.status = "";
+        toResetSettings();
         window.application.renderScreen("start");
     });
 

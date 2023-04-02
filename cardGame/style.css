@@ -6,30 +6,6 @@
     padding: 0;
 }
 
-/* @font-face {
-    font-family: StratosSkyeng;
-    src: url("/cardGame/DesktopFonts/stratosskyeng-black.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-blackitalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-bold.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-bolditalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-extrabold.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-extrabolditalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-extralight.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-extralightitalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-italic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-light.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-lightitalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-medium.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-mediumitalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-regular.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-semibold.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-semibolditalic.otf"),
-        url("/DesktopFonts/stratosskyeng-semilight.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-semilightitalic.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-thin.otf"),
-        url("/cardGame/DesktopFonts/stratosskyeng-thinitalic.otf");
-} */
-
 @font-face {
     font-family: "StratosSkyeng";
     font-weight: 400;
